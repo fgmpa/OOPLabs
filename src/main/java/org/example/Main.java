@@ -10,7 +10,7 @@ public class Main extends JFrame implements ActionListener {
     static JTextField text;
     static JPanel panel;
     static JTextArea area;
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Main listen = new Main();
         JButton button = new JButton("Enter");
         button.addActionListener(listen);
@@ -18,12 +18,13 @@ public class Main extends JFrame implements ActionListener {
         text = new JTextField(5);
         panel = new JPanel();
         area = new JTextArea(20,30);
+        frame = new JFrame();
 
         panel.add(text);
         panel.add(area);
         panel.add(button);
 
-        frame = new JFrame();
+
         frame.add(panel);
         frame.setSize(360, 420);
         frame.setVisible(true);
@@ -38,9 +39,10 @@ public class Main extends JFrame implements ActionListener {
         int extCounter = N;
         int pos = extCounter - 1;
         int insCounter = N;
-        while (extCounter != 0) {
+
+        do{
             insCounter = N;
-            while (insCounter != 0) {
+           do {
                 if (insCounter > pos) {
                     area.append(String.valueOf(insCounter) + " ");
                 }
@@ -48,10 +50,10 @@ public class Main extends JFrame implements ActionListener {
                     area.append(" ");
                 }
                 insCounter--;
-            }
+            } while (insCounter != 0);
             area.append("\n");
             pos--;
             extCounter--;
-        }
+        } while (extCounter != 0);
     }
 }
